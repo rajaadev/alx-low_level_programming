@@ -10,19 +10,18 @@
  */
 int main(void)
 {
-	char letter1 = 'a';
+	char lowercase = 'a';
+	char uppercase = 'A';
 
-	while (letter1 <= 'z')
+	while (lowercase <= 'z')
 	{
-	putchar(letter1);
-	letter1++;
+	putchar(lowercase);
+	lowercase++;
 	}
-	char letter = 'A';
-
-	while (letter <= 'Z')
+	while (uppercase <= 'Z')
 	{
-	putchar(letter);
-	letter++;
+	putchar(uppercase);
+	uppercase++;
 	}
 	putchar('\n');
 	return (0);
