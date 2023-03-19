@@ -14,7 +14,7 @@ int main(void)
 	/* print single digit numbers */
 	while (num < 10)
 	{
-	putchar (num +'0');
+	putchar (num + '0');
 	num++;
 	}
 	putchar ('\n');
