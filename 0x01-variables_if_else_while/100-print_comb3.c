@@ -18,8 +18,14 @@ int main(void)
 	{
 	putchar (i + 48);
 	putchar (j + 48);
+	if (i == 8 && j == 9)
+	{
+	}
+	else
+	{
 	putchar (',');
 	putchar (32);
+	}
 	}
 	}
 	return (0);
