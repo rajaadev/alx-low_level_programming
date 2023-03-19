@@ -18,8 +18,8 @@ int main(void)
 	if (i != 9)
 	{
 	putchar (',');
-	putchar (32);
 	}
+	putchar (32);
 	}
 	return (0);
 }
