@@ -5,7 +5,6 @@
  * of the program and is responsible for
  * starting the execution of the program.
  * It initializes any necessary resources
-
  * and then calls other functions as needed.
  * Return: 0 on success, non-zero on failure
  */
