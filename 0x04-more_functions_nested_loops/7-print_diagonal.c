@@ -7,15 +7,15 @@
 
 void print_line(int n)
 {
-if (n <= 0)
-{
-_putchar('\n');
-return;
-}
-	for (int i = 0; i < n; i++)
-	{
-	_putchar('_');
-	}
-_putchar('\n');
-}
+int lnChr;
 
+if (n <= 0)
+_putchar('\n');
+else
+{
+for (lnChr = 0; lnChr < 10; lnChr++)
+_putchar('_');
+_putchar('\n');
+}
+}
+}
