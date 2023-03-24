@@ -1,28 +1,21 @@
 #include "main.h"
 /**
- * more_numbers - print 0 - 14 ten times
- * you can only using _putchar three times
- *
- * Return: 0 success
+ * print_line - print a straight line
+ * @n : is the number of times the _ character
+ * should be printed
  */
 
-void more_numbers(void)
+void print_line(int n)
 {
-int num, row, count;
+int lnChr;
 
-for (row = 1; row <= 10; row++)
-{
-for (count = 1; count <= 10; count++)
-{
-num = count;
-if (count > 9)
-{
-_putchar(1 + 48);
-num = count % 10;
-}
-_putchar(num + 48);
-}
-
+if (n <= 0)
 _putchar('\n');
+else
+{
+for (lnChr = 0; lnChr < 10; lnChr++)
+_putchar('_');
+_putchar('\n');
+}
 }
 }
