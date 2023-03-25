@@ -1,20 +1,25 @@
 #include "main.h"
 /**
- * print_line - print a straight line
- * @n : is the number of times the _ character
+ * print_diagonal - print a diagonal  line
+ * @n : is the number of times the \ character
  * should be printed
  */
 
-void print_line(int n)
+void print_diagonal(int n)
 {
-int lnChr;
+int position_n, space;
 
 if (n <= 0)
+{
 _putchar('\n');
+}
 else
 {
-for (lnChr = 0; lnChr < 10; lnChr++)
-_putchar('_');
+for (position_n = 1; position_n  <= n; position_n++)
+{
+for (space = 1; space <= position_n; space++)
+	_putchar(' ');
+_putchar(92);
 _putchar('\n');
 }
 }
