@@ -1,21 +1,23 @@
+#include <stdio.h>
 #include "main.h"
 /**
  * print_diagonal - print a diagonal  line
  * @n : is the number of times the \ character
+ * when n > 0  function print n line with 1- n spaces
  * should be printed
  */
 
 void print_diagonal(int n)
 {
-	int i, j;
+	int line, space;
 
 	if (n <= 0)
 		_putchar('\n');
 	else
 	{
-	for (i = 1; i <= n; i++)
+	for (line = 1; line  <= n; line++)
 	{
-		for (j = 1; j <= i; j++)
+		for (space = 1; space <= line; space++)
 			_putchar(' ');
 		_putchar(92);
 		_putchar('\n');
