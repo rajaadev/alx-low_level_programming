@@ -1,22 +1,32 @@
 #include "main.h"
 /**
- * print_array - function that prints n elements
- * of an array of integers, followed by a new line.
- * @a: array name
- * @n: number of element to be printed
- * Return: a and n inputs
- * */
-void print_array(int *a, int n)
+ * _atoi - function that convert a string to an integer
+ * @s: string, numbers, characters
+ * Return: integer
+ */
+int _atoi(char *s)
 {
-int i;
-
-for (i = 0; i < (n -1); i++)
+int i = 0, d = 0, n = 0, len = 0, f = 0, digit = 0;
+while (s[len] != '\0')
+len++;
+while (i < len && f == 0)
 {
-printf("%d, ",a[i]);
+if (s[i] == 0)
+++d;
+if (s[i] >= '0' && s[i] <= '9')
+{
+digit = s[i] - '0';
+if (d % 2)
+digit = -digit;
+n = n * 10 + digit;
+f = i;
+if (s[i + i] < '0' || s[i + i] > '9')
+break;
+f = 0;
 }
-if (i == (n -1))
-{
-printf("%d " ,a[n - 1]);
+i++;
 }
-printf("\n");
+if (f == 0)
+return (0);
+return (n);
 }
