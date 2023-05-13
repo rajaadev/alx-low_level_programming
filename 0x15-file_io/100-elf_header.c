@@ -109,9 +109,7 @@ printf("<unknown: %x>\n", e_ident[EI_CLASS]);
  */
 void print_version(unsigned char *e_ident)
 {
-printf(" Version: %d",
-e_ident[EI_VERSION]);
-
+printf(" Version: %d",e_ident[EI_VERSION]);
 switch (e_ident[EI_VERSION])
 {
 case EV_CURRENT:
@@ -172,8 +170,7 @@ printf("<unknown: %x>\n", e_ident[EI_OSABI]);
  */
 void print_abi(unsigned char *e_ident)
 {
-printf(" ABI Version: %d\n",
-e_ident[EI_ABIVERSION]);
+printf(" ABI Version: %d\n",e_ident[EI_ABIVERSION]);
 }
 /**
  * print_type - Prints the type of an ELF header.
@@ -222,11 +219,9 @@ e_entry = (e_entry << 16) | (e_entry >> 16);
 }
 if (e_ident[EI_CLASS] == ELFCLASS32)
 printf("%#x\n", (unsigned int)e_entry);
-
 else
 printf("%#lx\n", e_entry);
 }
-
 /**
  * close_elf - Closes an ELF file.
  * @elf: The file descriptor of the ELF file.
