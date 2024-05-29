@@ -19,14 +19,3 @@ def island_perimeter(grid):
                 if c > 0 and grid[r][c-1] == 1:  # Check left
                     perimeter -= 2
     return perimeter
-
-# Example usage
-if __name__ == "__main__":
-    grid = [
-        [0, 0, 0, 0, 0, 0],
-        [0, 1, 0, 0, 0, 0],
-        [0, 1, 0, 0, 0, 0],
-        [0, 1, 1, 1, 0, 0],
-        [0, 0, 0, 0, 0, 0]
-    ]
-    print(island_perimeter(grid))  # Output should be 12
