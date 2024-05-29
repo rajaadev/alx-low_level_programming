@@ -1,0 +1,8 @@
+# Makefile for compiling school project
+
+CC = gcc
+SRC = main.c school.c
+EXEC = school
+
+all:
+	$(CC) $(SRC) -o $(EXEC)
