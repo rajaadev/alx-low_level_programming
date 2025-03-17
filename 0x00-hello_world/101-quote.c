@@ -13,5 +13,5 @@ int main(void)
 	char S[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
 
 	write(2, S, sizeof(S) - 1);
-	return (0);
+	return (1);
 }
