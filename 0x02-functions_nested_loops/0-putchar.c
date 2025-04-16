@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * main - prints "_putchar" followed by new line 
+ * main - prints "_putchar" followed by new line
  *
  * return: Always 0.
  */
@@ -10,9 +10,9 @@
 int main(void)
 {
 	int i;
-	char str[]= "_putchar";
+	char str[] = "_putchar";
 
-	for(i = 0; str[i] != '\0'; i++)
+	for (i = 0; str[i] != '\0'; i++)
 	{
 		_putchar(str[i]);
 	}
