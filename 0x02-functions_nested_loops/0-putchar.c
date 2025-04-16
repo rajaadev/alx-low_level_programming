@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <unistd.h>
+#include "main.h"
 
 /**
  * main - prints "_putchar" followed by new line 
@@ -7,7 +6,6 @@
  * return: Always 0.
  */
 
-int _putchar(char c);
 
 int main(void)
 {
