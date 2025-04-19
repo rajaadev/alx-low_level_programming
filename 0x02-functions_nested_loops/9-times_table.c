@@ -20,6 +20,8 @@ for (i = 0; i <= 9; i++)
 			_putchar(r / 10 + '0');
 			_putchar(r % 10 + '0');
 		}
+		else if (j == 0)
+			_putchar(r + '0');
 		else
 		{
 			_putchar(' ');
