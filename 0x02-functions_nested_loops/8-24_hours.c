@@ -3,27 +3,37 @@
 /**
  * jack_bauer - prints every minute of the dayof jack Bauer,
  * starting from 00:00 to 23: 59
- * @h: number of hours
- * @m: number of minutes
+ * @h1 & @h2: number of hours
+ * @m1 & @m2 : number of minutes
  */
 void jack_bauer(void)
 {
-	int h, m;
+	int h1 = 0;
 
-	for (h = 0; h <= 23; h++)
+	int h2, m1, m2;
+
+	for (h1 = 0; h1 <= 2; h1++)
 	{
-		m = 0;
+		h2 = 0;
 
-		for (m = 0; m <= 59; m++)
+		for (h2 = 0; h2 <= 3; h2++)
 		{
-		if (h / 10 == 0)
-			printf("0");
-		printf("%d",h );
-		printf(":");
-		if (m / 10 == 0)
-			printf("0");
-		printf("%d",m);
-		printf("\n");
+			m1 = 0;
+
+			for (m1 = 0; m1 <= 5; m1++)
+			{
+				m2 = 0;
+
+				for (m2 = 0; m2 <= 9; m2++)
+				{
+					_putchar(h1 + '0');
+					_putchar(h2 + '0');
+					_putchar(':');
+					_putchar(m1 + '0');
+					_putchar(m2 + '0');
+					_putchar('\n');
+				}
+			}
 		}
 
 	}
