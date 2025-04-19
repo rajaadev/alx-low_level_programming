@@ -31,9 +31,7 @@ for (i = 0; i <= 9; i++)
 			_putchar(' ');
 		}
 		else
-		{	_putchar('$');
 			_putchar('\n');
-		}
 	}
 	}
 }
