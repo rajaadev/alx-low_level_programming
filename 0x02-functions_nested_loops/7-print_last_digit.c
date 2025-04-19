@@ -10,11 +10,9 @@ int print_last_digit(int n)
 	unsigned int last_digit;
 
 	if (n < 0)
-		last_digit = (unsigned int)(-(n + 1)) + 1;
+		last_digit =  -n % 10;
 	else
-		last_digit = (unsigned int)n;
-
-	last_digit = last_digit % 10;
+		last_digit = n % 10;
 
 	_putchar(last_digit + '0');
 	return (last_digit);
