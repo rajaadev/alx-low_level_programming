@@ -5,48 +5,66 @@
 /**
  * print_listint_safe - affiche une liste listint_t
  * même si elle contient une boucle
- * @head: pointeur vers le début de la liste
- * Return: le nombre de noeuds affichés
- * En cas d’échec, exit(98)
+ * @head: pointeur vers la tête de liste
+ * Return: nombre de noeuds imprimés
+ * En cas d’erreur de malloc, exit(98)
  */
 size_t print_listint_safe(const listint_t *head)
 {
-const listint_t **nodes = NULL; /* Tableau dynamique d’adresses */
-const listint_t **tmp;
-size_t count = 0;               /* Nb de noeuds affichés */
-size_t i;
+const listint_t *slow, *fast, *loop_node;
+size_t count = 0;
 
-while (head != NULL)
+if (head == NULL)
+return (0);
+
+/* Détecter la boucle avec Floyd's cycle detection */
+slow = fast = head;
+while (fast && fast->next)
 {
-/* Vérifier si on a déjà rencontré ce noeud */
-for (i = 0; i < count; i++)
+slow = slow->next;
+fast = fast->next->next;
+if (slow == fast)
+break;
+}
+
+if (slow != fast)
 {
-if (head == nodes[i])
+/* Pas de boucle, afficher normalement */
+while (head)
 {
-/* On a trouvé un noeud en boucle */
-printf("-> [%p] %d\n", (void *)head, head->n);
-free(nodes);
+printf("[%p] %d\n", (void *)head, head->n);
+count++;
+head = head->next;
+}
 return (count);
 }
-}
 
-/* Ajouter le noeud courant dans le tableau */
-tmp = realloc(nodes, (count + 1) * sizeof(listint_t *));
-if (tmp == NULL)
+/* Trouver le début de la boucle */
+slow = head;
+while (slow != fast)
 {
-free(nodes);
-exit(98);
+slow = slow->next;
+fast = fast->next;
 }
-nodes = tmp;
-nodes[count] = head;
+loop_node = slow;
 
-/* Afficher ce noeud */
+/* Afficher jusqu'au début de la boucle */
+while (head != loop_node)
+{
 printf("[%p] %d\n", (void *)head, head->n);
-
-head = head->next;
 count++;
+head = head->next;
 }
 
-free(nodes);
+/* Afficher les noeuds en boucle une fois */
+do {
+printf("[%p] %d\n", (void *)head, head->n);
+count++;
+head = head->next;
+} while (head != loop_node);
+
+/* Indiquer la boucle */
+printf("-> [%p] %d\n", (void *)head, head->n);
+
 return (count);
 }
