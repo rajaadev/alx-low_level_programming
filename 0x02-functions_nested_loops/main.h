@@ -16,3 +16,4 @@ void print_to_98(int n);
 void print_times_table(int n);
 void print_number(int n);
 void print_number_ulong(unsigned long n);
+void print_fibon_number(unsigned long high, unsigned long low, int print_full);
