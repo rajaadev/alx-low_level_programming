@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * print_number - prints an integer using _putchar.
+ * print_number - prints an unsigned integer using _putchar.
  * @n: the number to print.
  */
-void print_number_unsigned(unsigned long n)
+void print_number_ulong(unsigned long n)
 {
 	if (n / 10)
-		print_number_unsigned(n / 10);
+		print_number_ulong(n / 10);
 	_putchar((n % 10) + '0');
 }
 
@@ -21,17 +21,17 @@ int main(void)
 	unsigned long fib1 = 1, fib2 = 2, next;
 	int count;
 
-	print_number_unsigned(fib1);
+	print_number_ulong(fib1);
 	_putchar(',');
 	_putchar(' ');
-	print_number_unsigned(fib2);
+	print_number_ulong(fib2);
 
 	for (count = 3; count <= 50; count++)
 	{
 		next = fib1 + fib2;
 		_putchar(',');
 		_putchar(' ');
-		print_number_unsigned(next);
+		print_number_ulong(next);
 		fib1 = fib2;
 		fib2 = next;
 	}
