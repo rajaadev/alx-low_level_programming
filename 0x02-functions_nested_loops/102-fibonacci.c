@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_number - prints an unsigned integer using _putchar.
+ * print_number_ulong - prints an unsigned integer using _putchar.
  * @n: the number to print.
  */
 void print_number_ulong(unsigned long n)
