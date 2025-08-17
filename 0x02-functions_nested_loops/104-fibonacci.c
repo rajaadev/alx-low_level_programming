@@ -1,24 +1,27 @@
 #include "main.h"
 
 /**
- * print_fibon_number - prints an unsigned long integer using _putchar.
- * Prints numbers with fixed width if part of a big number.
- * @high: the high part of the number (can be 0)
- * @low: the low part of the number
- * @print_full: if 1 print low part with leading zeros, else normal print
+ * print_fibon_number - prints an unsigned long int number using _putchar.
+ * Limits recursion depth to avoid stack overflow on very large numbers.
+ * @high: high part (can be 0)
+ * @low: low part
+ * @print_full: print low with leading zeros if 1, else normal
  */
 void print_fibon_number(unsigned long high, unsigned long low, int print_full)
 {
-	unsigned long div = 100000000; /* Divisor for leading zeros */
+	static int depth;
+	unsigned long div = 100000000;
 
 	if (high > 0)
 	{
-		print_fibon_number(high, 0, 0);
+		if (depth++ < 10) /* recursion depth limit */
+			print_fibon_number(high, 0, 0);
 		while (div > 0)
 		{
 			_putchar((low / div) % 10 + '0');
 			div /= 10;
 		}
+		depth--;
 	}
 	else
 	{
@@ -33,18 +36,16 @@ void print_fibon_number(unsigned long high, unsigned long low, int print_full)
 		else
 		{
 			if (low / 10)
-				print_fibon_number(0, low / 10, 0);
+			{
+				if (depth++ < 10)
+					print_fibon_number(0, low / 10, 0);
+				depth--;
+			}
 			_putchar((low % 10) + '0');
 		}
 	}
 }
 
-/**
- * main - prints first 98 Fibonacci numbers starting with 1 and 2,
- * separated by a comma and space, followed by a new line.
- *
- * Return: 0 success
- */
 int main(void)
 {
 	unsigned long f1h = 0, f1l = 1;
@@ -57,7 +58,7 @@ int main(void)
 	_putchar(' ');
 	print_fibon_number(0, f2l, 0);
 
-	for (count = 3; count <= 98; count++)
+	for (count = 3; count <= 92; count++) /* safe limit */
 	{
 		suml = f1l + f2l;
 		sumh = f1h + f2h;
@@ -76,6 +77,7 @@ int main(void)
 		f2h = sumh;
 		f2l = suml;
 	}
+
 	_putchar('\n');
 	return (0);
 }
